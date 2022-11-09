@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Design Pattern</string>
+    <string name="app_title">신입사원 커리큘럼 DesignPattern</string>
+    <string name="SingleTon">SingleTon</string>
+    <string name="Builder">Builder</string>
+    <string name="templateMethod">Template Method</string>
+    <string name="Observer">Observer</string>
+    <string name="Adapter">Adapter</string>
 </resources>
