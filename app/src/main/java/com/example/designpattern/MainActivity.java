@@ -7,6 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
 import com.example.designpattern.databinding.ActivityMainBinding;
+import com.example.designpattern.observer.DigitObserver;
+import com.example.designpattern.observer.GraphObserver;
+import com.example.designpattern.observer.NumberGenerator;
+import com.example.designpattern.observer.Observer;
+import com.example.designpattern.observer.RandomNumberGenerator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,7 +35,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.buttonTemplateMethod.setOnClickListener(view -> {
-            templateMethodPattern();
+            templateMethod();
+        });
+
+        binding.buttonObserver.setOnClickListener(view -> {
+            observer();
         });
     }
 
@@ -63,11 +72,20 @@ public class MainActivity extends AppCompatActivity {
         Log.d("yj : builder2", builderPattern2.toStringTest());
     }
 
-    private void templateMethodPattern() {
+    private void templateMethod() {
         IceAmericano iceAmericano = new IceAmericano();
         IceLatte iceLatte = new IceLatte();
 
         iceAmericano.makeCoffee();
         iceLatte.makeCoffee();
+    }
+
+    private void observer(){
+        NumberGenerator generator = new RandomNumberGenerator();
+        Observer observer1 = new DigitObserver();
+        Observer observer2 = new GraphObserver();
+        generator.addObserver(observer1);
+        generator.addObserver(observer2);
+        generator.execute();
     }
 }
