@@ -4,12 +4,12 @@ package com.example.designpattern;
 import androidx.annotation.NonNull;
 
 public class BuilderPattern {
-    private final String company;       // 필수 매개변수
-    private final String name;          // 이하 선택 매개변수
+    private final String company;
+    private final String name;
     private final String gender;
     private final String position;
 
-    BuilderPattern(Builder builder) {
+    BuilderPattern(@NonNull Builder builder) {
         company = builder.company;
         name = builder.name;
         gender = builder.gender;
@@ -37,8 +37,8 @@ public class BuilderPattern {
     }
 
     public static class Builder {
-        private final String company;
-        private String name = "";
+        private final String company;       // 필수 매개변수
+        private String name = "";           // 이하 선택 매개변수
         private String gender = "";
         private String position = "";
 
