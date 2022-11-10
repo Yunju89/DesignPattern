@@ -28,11 +28,17 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonBuilder.setOnClickListener(view -> {
             builder();
         });
+
+        binding.buttonTemplateMethod.setOnClickListener(view -> {
+            templateMethodPattern();
+        });
     }
 
     private void singleTon() {
         Singleton obj1 = Singleton.getInstance();
+        Log.d("yj : singleton", "obj1 생성");
         Singleton obj2 = Singleton.getInstance();
+        Log.d("yj : singleton", "obj2 생성");
         if (obj1 == obj2) {
             Log.d("yj : singleton", "obj1과 obj2는 같은 인스턴스입니다.");
         } else {
@@ -54,7 +60,14 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         Log.d("yj : builder1", builderPattern1.toStringTest());
-
         Log.d("yj : builder2", builderPattern2.toStringTest());
+    }
+
+    private void templateMethodPattern() {
+        IceAmericano iceAmericano = new IceAmericano();
+        IceLatte iceLatte = new IceLatte();
+
+        iceAmericano.makeCoffee();
+        iceLatte.makeCoffee();
     }
 }
