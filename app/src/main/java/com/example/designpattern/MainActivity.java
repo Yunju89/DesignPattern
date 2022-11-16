@@ -6,6 +6,10 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.example.designpattern.adaptermail.Adapter;
+import com.example.designpattern.adaptermail.MailSenderA;
+import com.example.designpattern.adaptermail.SolutionA;
+import com.example.designpattern.adaptermail.SolutionB;
 import com.example.designpattern.adapter.AirConditioner;
 import com.example.designpattern.adapter.Cleaner;
 import com.example.designpattern.adapter.Electronic110v;
@@ -49,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         binding.buttonAdapter.setOnClickListener(view -> {
             adapter();
+            adapterMail();
         });
     }
 
@@ -107,4 +112,13 @@ public class MainActivity extends AppCompatActivity {
         cleaner.powerOn();
         airConditioner.powerOn();
     }
+
+    private void adapterMail(){
+        MailSenderA senderA = new SolutionA();
+        senderA.send("A 발송 메일");
+
+        senderA = new Adapter(new SolutionB()); // SolutionA에서 B 실행 가능
+        senderA.send("B 발송 메일");
+    }
+
 }
