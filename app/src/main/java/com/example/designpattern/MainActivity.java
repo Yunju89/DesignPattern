@@ -16,11 +16,10 @@ import com.example.designpattern.adapter.Electronic110v;
 import com.example.designpattern.adapter.ElectronicAdapter;
 import com.example.designpattern.adapter.HairDryer;
 import com.example.designpattern.databinding.ActivityMainBinding;
-import com.example.designpattern.observer.DigitObserver;
+import com.example.designpattern.observer.NumberObserver;
 import com.example.designpattern.observer.GraphObserver;
 import com.example.designpattern.observer.NumberGenerator;
 import com.example.designpattern.observer.Observer;
-import com.example.designpattern.observer.RandomNumberGenerator;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -95,8 +94,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void observer(){
-        NumberGenerator generator = new RandomNumberGenerator();        // 다형성
-        Observer observer1 = new DigitObserver();
+        NumberGenerator generator = new NumberGenerator();
+        Observer observer1 = new NumberObserver();      // 다형성
         Observer observer2 = new GraphObserver();
         generator.addObserver(observer1);
         generator.addObserver(observer2);

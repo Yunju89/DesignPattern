@@ -7,9 +7,9 @@ public class GraphObserver implements Observer{        // Observer 구현
     StringBuffer str = new StringBuffer();
 
     @Override
-    public void update(NumberGenerator generator) {
+    public void update(int number) {
         str.setLength(0);
-        int count = generator.getNumber();
+        int count = number;
         for(int i = 0; i < count; i++){
             str.append("*");
         }
