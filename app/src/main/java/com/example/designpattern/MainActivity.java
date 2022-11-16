@@ -6,6 +6,11 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import com.example.designpattern.adapter.AirConditioner;
+import com.example.designpattern.adapter.Cleaner;
+import com.example.designpattern.adapter.Electronic110v;
+import com.example.designpattern.adapter.ElectronicAdapter;
+import com.example.designpattern.adapter.HairDryer;
 import com.example.designpattern.databinding.ActivityMainBinding;
 import com.example.designpattern.observer.DigitObserver;
 import com.example.designpattern.observer.GraphObserver;
@@ -40,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
 
         binding.buttonObserver.setOnClickListener(view -> {
             observer();
+        });
+
+        binding.buttonAdapter.setOnClickListener(view -> {
+            adapter();
         });
     }
 
@@ -81,11 +90,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void observer(){
-        NumberGenerator generator = new RandomNumberGenerator();
+        NumberGenerator generator = new RandomNumberGenerator();        // 다형성
         Observer observer1 = new DigitObserver();
         Observer observer2 = new GraphObserver();
         generator.addObserver(observer1);
         generator.addObserver(observer2);
         generator.execute();
+    }
+
+    private void adapter(){
+        Electronic110v hairDryer = new HairDryer();
+        Electronic110v cleaner = new ElectronicAdapter(new Cleaner());
+        Electronic110v airConditioner = new ElectronicAdapter(new AirConditioner());
+
+        hairDryer.powerOn();
+        cleaner.powerOn();
+        airConditioner.powerOn();
     }
 }
