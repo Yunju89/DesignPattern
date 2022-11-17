@@ -6,18 +6,12 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.example.designpattern.adapter.adaptermail.Adapter;
-import com.example.designpattern.adapter.adaptermail.MailSenderA;
-import com.example.designpattern.adapter.adaptermail.SolutionA;
-import com.example.designpattern.adapter.adaptermail.SolutionB;
-import com.example.designpattern.adapter.AirConditioner;
-import com.example.designpattern.adapter.Cleaner;
-import com.example.designpattern.adapter.Electronic110v;
-import com.example.designpattern.adapter.ElectronicAdapter;
-import com.example.designpattern.adapter.HairDryer;
+import com.example.designpattern.adapter.Adapter;
+import com.example.designpattern.adapter.MailSenderA;
+import com.example.designpattern.adapter.SolutionA;
+import com.example.designpattern.adapter.SolutionB;
 import com.example.designpattern.builder.BuilderPattern;
 import com.example.designpattern.databinding.ActivityMainBinding;
-import com.example.designpattern.factorymethod.Factory;
 import com.example.designpattern.factorymethod.IdCardFactory;
 import com.example.designpattern.factorymethod.Product;
 import com.example.designpattern.observer.NumberObserver;
@@ -58,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         binding.buttonAdapter.setOnClickListener(view -> {
-            adapter();
             adapterMail();
         });
 
@@ -113,18 +106,6 @@ public class MainActivity extends AppCompatActivity {
         generator.execute();
     }
 
-    private void adapter(){
-        Electronic110v hairDryer = new HairDryer();
-        Electronic110v cleaner = new ElectronicAdapter(new Cleaner());
-        Electronic110v airConditioner = new ElectronicAdapter(new AirConditioner());
-
-        hairDryer.powerOn();
-        cleaner.powerOn();
-        airConditioner.powerOn();
-
-        Log.d("yj : adapter", "======================================");    // 비슷한 기능을 가진
-    }
-
     private void adapterMail(){
         MailSenderA senderA = new SolutionA();
         senderA.send("기존 메일 발송");
@@ -138,12 +119,15 @@ public class MainActivity extends AppCompatActivity {
         Product card1 = factory.create("홍길동");  //factory 클래스에서 create 로 Product 생성
         Product card2 = factory.create("이순신");
         Product card3 = factory.create("강감찬");
-        factory.getOwnerList();
-        Product p = (Product)factory.getOwnerList().get(0);
-        p.use();
+
         card1.use();                              
         card2.use();
         card3.use();
+
+        for (Object o : factory.getOwnerList()) {       // 예제에서 사용 하지 않은 메서드 사용.
+            Product p = (Product) o;
+            p.use();
+        }
     }
 
 }
