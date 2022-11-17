@@ -6,4 +6,5 @@
     <string name="templateMethod">Template Method</string>
     <string name="Observer">Observer</string>
     <string name="Adapter">Adapter</string>
+    <string name="FactoryMethod">FactoryMethod</string>
 </resources>

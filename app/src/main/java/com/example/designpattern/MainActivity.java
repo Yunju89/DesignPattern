@@ -17,6 +17,9 @@ import com.example.designpattern.adapter.ElectronicAdapter;
 import com.example.designpattern.adapter.HairDryer;
 import com.example.designpattern.builder.BuilderPattern;
 import com.example.designpattern.databinding.ActivityMainBinding;
+import com.example.designpattern.factorymethod.Factory;
+import com.example.designpattern.factorymethod.IdCardFactory;
+import com.example.designpattern.factorymethod.Product;
 import com.example.designpattern.observer.NumberObserver;
 import com.example.designpattern.observer.GraphObserver;
 import com.example.designpattern.observer.NumberGenerator;
@@ -57,6 +60,10 @@ public class MainActivity extends AppCompatActivity {
         binding.buttonAdapter.setOnClickListener(view -> {
             adapter();
             adapterMail();
+        });
+
+        binding.buttonFactory.setOnClickListener(view -> {
+            factory();
         });
     }
 
@@ -122,6 +129,16 @@ public class MainActivity extends AppCompatActivity {
 
         senderA = new Adapter(new SolutionB()); // SolutionA에서 B 실행 가능
         senderA.send("B 발송 메일");
+    }
+
+    private void factory(){
+        Factory factory = new IdCardFactory();
+        Product card1 = factory.create("홍길동");  //factory 클래스에서 create 로 Product 생성
+        Product card2 = factory.create("이순신");
+        Product card3 = factory.create("강감찬");
+        card1.use();                              
+        card2.use();
+        card3.use();
     }
 
 }

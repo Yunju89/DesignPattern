@@ -3,7 +3,7 @@ package com.example.designpattern.templatemethod;
 import android.util.Log;
 
 public abstract class CoffeeTemplate {
-    final void makeCoffee() {
+    public final void makeCoffee() {
         boilWater();
         putEspresso();
         putIce();
