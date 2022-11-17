@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class IdCardFactory extends Factory{
-    private List ownerList = new ArrayList();
+    private List<String> ownerList = new ArrayList();
 
     @Override
-    protected Product createProduct(String owner) {
+    protected Product createProduct(String owner) {     // create 메서드에서 호출 Product 객체 반환
         return new IdCard(owner);
     }
 
@@ -17,6 +17,6 @@ public class IdCardFactory extends Factory{
     }
 
     public List getOwnerList(){
-        return null;
+        return ownerList;
     }
 }
