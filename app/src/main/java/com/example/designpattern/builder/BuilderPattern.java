@@ -36,13 +36,13 @@ public class BuilderPattern {
         return this.company + " , " + this.name + " , " + this.gender + " , " + this.position;
     }
 
-    public static class Builder {
+    public static class Builder {           // 중첩클래스 생성
         private final String company;       // 필수 매개변수
         private String name = "";           // 이하 선택 매개변수
         private String gender = "";
         private String position = "";
 
-        public Builder(@NonNull String company) {       // 필수 매개변수 생성자로 받기
+        public Builder(@NonNull String company) {       // 필수 매개변수 생성자의 파라미터로 받기
             this.company = company;
         }
 
@@ -61,7 +61,7 @@ public class BuilderPattern {
             return this;
         }
 
-        public BuilderPattern build() {                  // 새 BuildPattern 객체 생성 - 빌드(Build 클래스에서 받은 데이터 전달)
+        public BuilderPattern build() {                  // BuildPattern 객체 생성 - 빌드(Build 클래스에서 받은 데이터 전달)
             return new BuilderPattern(this);
         }
     }

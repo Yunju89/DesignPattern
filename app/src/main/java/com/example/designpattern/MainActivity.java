@@ -121,6 +121,8 @@ public class MainActivity extends AppCompatActivity {
         hairDryer.powerOn();
         cleaner.powerOn();
         airConditioner.powerOn();
+
+        Log.d("yj : adapter", "======================================");
     }
 
     private void adapterMail(){
