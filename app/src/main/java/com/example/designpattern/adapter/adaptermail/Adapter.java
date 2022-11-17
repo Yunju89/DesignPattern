@@ -4,11 +4,11 @@ import android.util.Log;
 
 public class Adapter implements MailSenderA {
 
-    private final MailSenderB mailSenderB;  // 생성자 주입
-
+    private final MailSenderB mailSenderB;
     public Adapter(MailSenderB mailSenderB) {
         this.mailSenderB = mailSenderB;
-    }
+    } // 생성자 주입
+
 
     @Override
     public void send(String sendInfo) {
