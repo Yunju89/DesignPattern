@@ -6,20 +6,24 @@ import android.util.Log;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import com.example.designpattern.adaptermail.Adapter;
-import com.example.designpattern.adaptermail.MailSenderA;
-import com.example.designpattern.adaptermail.SolutionA;
-import com.example.designpattern.adaptermail.SolutionB;
+import com.example.designpattern.adapter.adaptermail.Adapter;
+import com.example.designpattern.adapter.adaptermail.MailSenderA;
+import com.example.designpattern.adapter.adaptermail.SolutionA;
+import com.example.designpattern.adapter.adaptermail.SolutionB;
 import com.example.designpattern.adapter.AirConditioner;
 import com.example.designpattern.adapter.Cleaner;
 import com.example.designpattern.adapter.Electronic110v;
 import com.example.designpattern.adapter.ElectronicAdapter;
 import com.example.designpattern.adapter.HairDryer;
+import com.example.designpattern.builder.BuilderPattern;
 import com.example.designpattern.databinding.ActivityMainBinding;
 import com.example.designpattern.observer.NumberObserver;
 import com.example.designpattern.observer.GraphObserver;
 import com.example.designpattern.observer.NumberGenerator;
 import com.example.designpattern.observer.Observer;
+import com.example.designpattern.singleton.Singleton;
+import com.example.designpattern.templatemethod.IceAmericano;
+import com.example.designpattern.templatemethod.IceLatte;
 
 public class MainActivity extends AppCompatActivity {
 

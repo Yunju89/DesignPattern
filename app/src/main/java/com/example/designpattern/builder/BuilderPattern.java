@@ -1,4 +1,4 @@
-package com.example.designpattern;
+package com.example.designpattern.builder;
 
 
 import androidx.annotation.NonNull;

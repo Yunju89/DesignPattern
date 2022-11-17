@@ -1,4 +1,4 @@
-package com.example.designpattern.adaptermail;
+package com.example.designpattern.adapter.adaptermail;
 
 import android.util.Log;
 
