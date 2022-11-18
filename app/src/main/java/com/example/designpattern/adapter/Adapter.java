@@ -12,7 +12,7 @@ public class Adapter implements MailSenderA {
 
     @Override
     public void send(String sendInfo) {
-        Log.d("yj : Adapter", "어댑터에서 mailSenderB 실행");    //기존 send 호출
+        Log.d("yj : Adapter", "Adapter 에서 mailSenderB 실행");    //기존 send 호출
         mailSenderB.sendApi(sendInfo);
     }
 }

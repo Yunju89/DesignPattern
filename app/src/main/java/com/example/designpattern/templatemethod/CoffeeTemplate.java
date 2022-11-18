@@ -10,7 +10,7 @@ public abstract class CoffeeTemplate {
         putExtra();
     }
 
-    // subClass 에게 확장/변화가 필요한 코드만 작성.
+    // subClass 에게 확장/변화가 필요한 코드 abstract.
     abstract void putExtra();
 
     // 공통 부분을 상위 클래스에서 해결, 코드 중복을 최소화 시킨다.

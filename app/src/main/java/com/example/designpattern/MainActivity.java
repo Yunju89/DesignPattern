@@ -14,9 +14,9 @@ import com.example.designpattern.builder.BuilderPattern;
 import com.example.designpattern.databinding.ActivityMainBinding;
 import com.example.designpattern.factorymethod.IdCardFactory;
 import com.example.designpattern.factorymethod.Product;
-import com.example.designpattern.observer.NumberObserver;
 import com.example.designpattern.observer.GraphObserver;
 import com.example.designpattern.observer.NumberGenerator;
+import com.example.designpattern.observer.NumberObserver;
 import com.example.designpattern.observer.Observer;
 import com.example.designpattern.singleton.Singleton;
 import com.example.designpattern.templatemethod.IceAmericano;
@@ -97,16 +97,16 @@ public class MainActivity extends AppCompatActivity {
         iceLatte.makeCoffee();
     }
 
-    private void observer(){
+    private void observer() {
         NumberGenerator generator = new NumberGenerator();
-        Observer observer1 = new NumberObserver();      // 다형성
+        Observer observer1 = new NumberObserver();
         Observer observer2 = new GraphObserver();
         generator.addObserver(observer1);
         generator.addObserver(observer2);
         generator.execute();
     }
 
-    private void adapterMail(){
+    private void adapterMail() {
         MailSenderA senderA = new SolutionA();
         senderA.send("기존 메일 발송");
 
@@ -114,19 +114,18 @@ public class MainActivity extends AppCompatActivity {
         senderA.send("다음 메일 발송");
     }
 
-    private void factory(){
+    private void factory() {
         IdCardFactory factory = new IdCardFactory();
         Product card1 = factory.create("홍길동");  //factory 클래스에서 create 로 Product 생성
         Product card2 = factory.create("이순신");
         Product card3 = factory.create("강감찬");
 
-        card1.use();                              
+        card1.use();
         card2.use();
         card3.use();
 
-        for (Object o : factory.getOwnerList()) {       // 예제에서 사용 하지 않은 메서드 사용.
-            Product p = (Product) o;
-            p.use();
+        for (Product product : factory.getOwnerList()) {       //List 에서 OwnerList 꺼내쓰기
+            product.use();
         }
     }
 

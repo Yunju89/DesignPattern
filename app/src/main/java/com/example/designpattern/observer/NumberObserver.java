@@ -2,7 +2,7 @@ package com.example.designpattern.observer;
 
 import android.util.Log;
 
-public class NumberObserver implements Observer {        // Observer 구현
+public class NumberObserver implements Observer {
     @Override
     public void update(int number) {
         Log.d("yj : DigitObserver", ""+ number);

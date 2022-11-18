@@ -2,7 +2,7 @@ package com.example.designpattern.observer;
 
 import android.util.Log;
 
-public class GraphObserver implements Observer{        // Observer 인터페이스 구현
+public class GraphObserver implements Observer{
 
     StringBuffer str = new StringBuffer();
 
